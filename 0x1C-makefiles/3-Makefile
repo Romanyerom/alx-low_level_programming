@@ -1,0 +1,42 @@
+# Makefile for building the 'school' executable
+
+# Variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# Rules
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	$(RM) *~ $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
+
+.PHONY: all clean oclean fclean re
+
+# Explanation:
+# - The 'CC' variable specifies the compiler to be used.
+# - The 'SRC' variable specifies the .c files to be compiled.
+# - The 'OBJ' variable specifies the corresponding .o files.
+# - The 'NAME' variable specifies the name of the executable.
+# - The 'RM' variable specifies the command to delete files.
+# - The rules perform the following actions:
+#   - 'all' builds the executable.
+#   - 'clean' deletes Emacs and Vim temporary
+#   files along with the executable.
+#   - 'oclean' deletes the object files.
+#   - 'fclean' combines the actions of 'clean' and 'oclean'.
+#   - 're' forces recompilation of all source files.
+# - The '.PHONY' directive declares the rules that
+#   are not associated with files.

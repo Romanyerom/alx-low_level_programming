@@ -1,0 +1,35 @@
+CC = gcc
+NAME = school
+RM = rm -f
+
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+
+clean:
+	$(RM) $(NAME)
+
+oclean:
+	$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: fclean all
+
+.PHONY: all clean oclean fclean re
+
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $^
+
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) -o $@ $^
+
+ifneq ("$(wildcard m.h)","")
+include m.h
+endif
