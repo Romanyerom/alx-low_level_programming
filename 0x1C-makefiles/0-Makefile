@@ -1,0 +1,13 @@
+# Makefile for building the 'school' executable
+
+# Rule for building the executable
+all:
+	gcc main.c school.c -o school
+
+# Explanation:
+# - The 'all' rule is the default rule that will
+#   be executed if no specific rule is provided.
+# - It uses the gcc compiler to compile the 'main.c'
+#   and 'school.c' files into an executable named 'school'.
+# - In a more complex project, you might want to
+#   use variables for the compiler and flags.

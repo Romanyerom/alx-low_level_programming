@@ -1,0 +1,28 @@
+# Makefile for building the 'school' executable
+
+# Variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+
+# Rule for building the executable
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+# Explanation:
+# - The 'CC' variable specifies the compiler to be used.
+# - The 'SRC' variable specifies the .c files to be compiled.
+# - The 'OBJ' variable specifies the corresponding .o files.
+# - The 'NAME' variable specifies the name of the executable.
+# - The all rule builds the executable using the $(NAME) rule.
+# - The pattern rule is used to recompile only the updated source files.
+# - '$<' is the automatic variable for the prerequisite.
+# - '$@' is the automatic variable for the target.
+# - This Makefile allows for easy modification of the compiler,
+#   source files, and executable name without changing the commands directly.

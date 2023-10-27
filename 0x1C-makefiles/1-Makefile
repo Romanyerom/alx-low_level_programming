@@ -1,0 +1,20 @@
+# Makefile for building the 'school' executable
+
+# Variables
+CC = gcc
+SRC = main.c school.c
+
+# Rule for building the executable
+all:
+	$(CC) $(SRC) -o school
+
+# Explanation:
+# - The 'all' rule is the default rule
+#   that will be executed if no specific rule is provided.
+# - The 'CC' variable specifies the compiler to be used.
+# - The 'SRC' variable specifies the .c files to be compiled.
+# - The '$(CC)' and '$(SRC)' in the rule are expanded
+#   to the values assigned to the variables.
+# - This Makefile allows for easy modification of 
+#   the compiler and source files without changing the commands directly.
+
